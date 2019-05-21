@@ -1,8 +1,8 @@
 from PIL import Image
 import numpy as np
 
-#画像の特定の５箇所部分を５クラスと設定して，該当するクラスごとに１０点のr,g,b値を教師データとして格納し，
-#入力画像の各画素がどのクラスに該当するかを最尤推定法を用いて算出する
+#画像の特定の５箇所を５クラスと設定して，該当するクラスごとに10点のr,g,b値を教師データとして格納し，
+#入力画像の各画素がどのクラスに該当するかを最尤法を用いて算出する
 
 img = Image.open('sample.bmp')  #画像読み込み
 rgb_im = img.convert('RGB')
@@ -40,7 +40,7 @@ for data in test_data: #共分散行列と共分散行列の逆行列を計算
             inverse_matrix_arrange[i][j][k] = inverse_matrix[j][k]
     i+=1
 
-for i in range(height): #最尤推定法の計算
+for i in range(height): #最尤法の計算
     for j in range(width):
         temp=10000
         for k in range(5):
